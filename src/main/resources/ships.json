@@ -2,7 +2,7 @@
 	"wood plank": {
 		"type": "raft", 
 	 	"price": "500",
-		"islands": [],
+		"islands": "",
 		"hp": "100",
 		"turnSpeed": "1.2", 
 		"speed": "6.8",
@@ -14,7 +14,7 @@
 	"raft 1": {
 		"type": "raft", 
 		"price": "500",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "100",
 		"turnSpeed": "1.2", 
 		"speed": "6.5",
@@ -26,7 +26,7 @@
 	"raft 2": {
 		"type": "raft", 
 		"price": "1300",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "150",
 		"turnSpeed": "1", 
 		"speed": "6.2",
@@ -38,7 +38,7 @@
 	"raft 3": {
 		"type": "raft", 
 		"price": "2400",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "200",
 		"turnSpeed": "0.9", 
 		"speed": "5.9",
@@ -50,7 +50,7 @@
 	"boat 1": {
 		"type": "boat", 
 		"price": "6900",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "450",
 		"turnSpeed": "0.7", 
 		"speed": "6",
@@ -62,7 +62,7 @@
 	"boat 2": {
 		"type": "boat", 
 		"price": "11000",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain hilipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "600",
 		"turnSpeed": "0.7", 
 		"speed": "6.1",
@@ -74,7 +74,7 @@
 	"boat 3": {
 		"type": "boat", 
 		"price": "16000",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "600",
 		"turnSpeed": "0.7", 
 		"speed": "6.2",
@@ -86,7 +86,7 @@
 	"trader 1": {
 		"type": "trader", 
 		"price": "4350",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "600",
 		"turnSpeed": "0.5", 
 		"speed": "5.1",
@@ -98,7 +98,7 @@
 	"trader 2": {
 		"type": "trader", 
 		"price": "18000",
-		"islands": ["jamaica"],
+		"islands": "jamaica",
 		"hp": "800",
 		"turnSpeed": "0.5", 
 		"speed": "5",
@@ -110,7 +110,7 @@
 	"trader 3": {
 		"type": "trader", 
 		"price": "45000",
-		"islands": ["jamaica"],
+		"islands": "jamaica",
 		"hp": "1000",
 		"turnSpeed": "0.5", 
 		"speed": "4.9",
@@ -122,7 +122,7 @@
 	"baby fancy": {
 		"type": "baby fancy", 
 		"price": "3900",
-		"islands": ["spain", "brazil", "cuba"],
+		"islands": "spain brazil cuba",
 		"hp": "300",
 		"turnSpeed": "1", 
 		"speed": "7.2",
@@ -134,7 +134,7 @@
 	"baby fancy 2": {
 		"type": "baby fancy", 
 		"price": "27000",
-		"islands": ["jamaica"],
+		"islands": "jamaica",
 		"hp": "500",
 		"turnSpeed": "1", 
 		"speed": "7.1",
@@ -146,7 +146,7 @@
 	"destroyer 1": {
 		"type": "destroyer", 
 		"price": "50000",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "2000",
 		"turnSpeed": "0.7", 
 		"speed": "5.9",
@@ -158,7 +158,7 @@
 	"destroyer 2": {
 		"type": "destroyer", 
 		"price": "75000",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "2700",
 		"turnSpeed": "0.7", 
 		"speed": "5.8",
@@ -170,7 +170,7 @@
 	"destroyer 3": {
 		"type": "destroyer", 
 		"price": "100000",
-		"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+		"islands": "spain philipines guinea malaysia brazil barbados taiwan cuba labrador",
 		"hp": "3800",
 		"turnSpeed": "0.7", 
 		"speed": "5.7",
@@ -182,7 +182,7 @@
 	"royal fortune": {
 		"type": "big mama", 
 		"price": "70000",
-		"islands": ["labrador", "spain", "barbados", "taiwan"],
+		"islands": "labrador spain barbados taiwan",
 		"hp": "1200",
 		"turnSpeed": "0.5", 
 		"speed": "6.9",
@@ -194,7 +194,7 @@
 	"royal fortune 2": {
 		"type": "big mama", 
 		"price": "90000",
-		"islands": ["jamaica", "taiwan"],
+		"islands": "jamaica taiwan",
 		"hp": "1500",
 		"turnSpeed": "0.6", 
 		"speed": "6.7",
@@ -206,7 +206,7 @@
 	"calm spirit": {
 		"type": "big mama", 
 		"price": "100000",
-		"islands": ["spain", "guinea", "cuba"],
+		"islands": "spain guinea cuba",
 		"hp": "1800",
 		"turnSpeed": "0.7", 
 		"speed": "6.4",
@@ -218,7 +218,7 @@
 	"calm spirit 2": {
 		"type": "big mama", 
 		"price": "150000",
-		"islands": ["jamaica"],
+		"islands": "jamaica",
 		"hp": "2300",
 		"turnSpeed": "0.7", 
 		"speed": "6.3",
@@ -230,7 +230,7 @@
 	"queen barb's justice": {
 		"type": "big mama", 
 		"price": "150000",
-		"islands": ["spain", "malaysia"],
+		"islands": "spain malaysia",
 		"hp": "3000",
 		"turnSpeed": "0.7", 
 		"speed": "5.9",
@@ -242,7 +242,7 @@
 	"queen barb's justice 2": {
 		"type": "big mama", 
 		"price": "225000",
-		"islands": ["jamaica"],
+		"islands": "jamaica",
 		"hp": "4000",
 		"turnSpeed": "0.7", 
 		"speed": "5.8",
@@ -254,7 +254,7 @@
 	"night wind": {
 		"type": "big mama", 
 		"price": "650000",
-		"islands": ["cuba"],
+		"islands": "cuba",
 		"hp": "4500",
 		"turnSpeed": "0.7", 
 		"speed": "7",
@@ -266,7 +266,7 @@
 	"black oyster": {
 		"type": "big mama", 
 		"price": "550000",
-		"islands": ["jamaica"],
+		"islands": "jamaica",
 		"hp": "6000",
 		"turnSpeed": "0.8", 
 		"speed": "6.4",
@@ -278,7 +278,7 @@
 	"fortune trader": {
 		"type": "big mama", 
 		"price": "600000",
-		"islands": ["guinea"],
+		"islands": "guinea",
 		"hp": "7500",
 		"turnSpeed": "0.6", 
 		"speed": "5",
@@ -290,7 +290,7 @@
 	"junkie": {
 		"type": "other", 
 		"price": "120000",
-		"islands": ["spain", "jamaica", "taiwan"],
+		"islands": "spain jamaica taiwan",
 		"hp": "2500",
 		"turnSpeed": "0.7", 
 		"speed": "6.4",
@@ -302,7 +302,7 @@
 	"raider": {
 		"type": "other", 
 		"price": "150000",
-		"islands": ["spain"],
+		"islands": "spain",
 		"hp": "1200",
 		"turnSpeed": "0.9", 
 		"speed": "6.9",

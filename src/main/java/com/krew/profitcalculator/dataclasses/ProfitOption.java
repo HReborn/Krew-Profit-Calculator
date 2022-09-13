@@ -30,4 +30,13 @@ public class ProfitOption {
 		return profitPerSec;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Destination Island: " + destinationIsland +
+			 "\n             Cargo: " + cargoName +
+			 "\n Profit To Be Made: " + profit +
+			 "\n       Travel Time: " + timeSpent + 
+			 "\n Profit per Second: " + profitPerSec;
+	}
 }

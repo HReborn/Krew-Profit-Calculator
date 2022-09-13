@@ -63,7 +63,7 @@ public class Calculator {
 		return new ProfitOption(cargoName, sellIsland, time, profit);
 	}
 	
-	public double travelTimeCalculator(String shipName, String startingIsland, String destinationIsland) {
+	private double travelTimeCalculator(String shipName, String startingIsland, String destinationIsland) {
 		// i timed the trip from spain to malaysia straight line with raft 1 with 6.5 speed and i got
 		// there in 4 minutes 30 seconds
 		

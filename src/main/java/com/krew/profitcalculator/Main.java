@@ -1,15 +1,14 @@
 package com.krew.profitcalculator;
 
-import com.krew.profitcalculator.apiconsultor.DataExtractor;
+import java.util.List;
+
+import com.krew.profitcalculator.dataclasses.ProfitOption;
 
 public class Main {
 	
 	public static void main(String[] args) {
-		System.out.println("Krew here");
-		DataExtractor extractor = new DataExtractor();
-		System.out.println(extractor.getPriceTable());
-		System.out.println(extractor.getAllCargoSizes());
-		System.out.println(extractor.getAllIslandsCoordinates());
-		System.out.println(extractor.getShipPropertiesInfoTable());
+		Calculator calc = new Calculator();
+		List<ProfitOption> options = calc.calculateProfitOptionsOfIslandWithCurrentBoat("brazil", "baby fancy");
+		System.out.println(options);
 	}
 }
