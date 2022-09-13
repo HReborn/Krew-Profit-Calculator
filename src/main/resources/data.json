@@ -1,0 +1,112 @@
+{
+	"availableCargo": [
+		{"name": "rum", "size": "10"},
+		{"name": "coffee", "size": "5"},
+		{"name": "spice", "size": "8"},
+		{"name": "silk", "size": "15"},
+		{"name": "gems", "size": "20"},
+		{"name": "sugar", "size": "12"},
+		{"name": "bananas", "size": "5"}
+	
+	], "availableIslands": [
+			{"name": "spain", "x": "0", "y":"0"},
+			{"name": "phillipines", "x": "0", "y":"0"},
+			{"name": "guinea", "x": "0", "y":"0"},
+			{"name": "malaysia", "x": "0", "y":"0"},
+			{"name": "brazil", "x": "0", "y":"0"},
+			{"name": "barbados", "x": "0", "y":"0"},
+			{"name": "taiwan", "x": "0", "y":"0"},
+			{"name": "cuba", "x": "0", "y":"0"}
+	
+	], "islandCargoPriceTable": [
+			{"name": "spain", "prices": [
+				{"rum": "155"},
+				{"coffee": "55"},
+				{"spice": "210"},
+				{"silk": "140"},
+				{"gems": "210"},
+				{"sugar": "250"},
+				{"bananas": "75"}]},
+		
+			{"name": "phillipines", "prices": [
+				{"rum": "145"},
+				{"coffee": "60"},
+				{"spice": "270"},
+				{"silk": "155"},
+				{"gems": "55"},
+				{"sugar": "290"},
+				{"bananas": "120"}]},
+				
+			{"name": "guinea", "prices": [
+				{"rum": "155"},
+				{"coffee": "65"},
+				{"spice": "35"},
+				{"silk": "170"},
+				{"gems": "170"},
+				{"sugar": "325"},
+				{"bananas": "145"}]},
+				
+			{"name": "malaysia", "prices": [
+				{"rum": "165"},
+				{"coffee": "95"},
+				{"spice": "135"},
+				{"silk": "185"},
+				{"gems": "300"},
+				{"sugar": "65"},
+				{"bananas": "190"}]},
+				
+			{"name": "brazil", "prices": [
+				{"rum": "180"},
+				{"coffee": "125"},
+				{"spice": "210"},
+				{"silk": "200"},
+				{"gems": "375"},
+				{"sugar": "130"},
+				{"bananas": "20"}]},
+				
+			{"name": "barbados", "prices": [
+				{"rum": "195"},
+				{"coffee": "25"},
+				{"spice": "270"},
+				{"silk": "220"},
+				{"gems": "400"},
+				{"sugar": "145"},
+				{"bananas": "40"}]},
+				
+			{"name": "taiwan", "prices": [
+				{"rum": "210"},
+				{"coffee": "35"},
+				{"spice": "35"},
+				{"silk": "375"},
+				{"gems": "475"},
+				{"sugar": "180"},
+				{"bananas": "45"}]},
+				
+			{"name": "cuba", "prices": [
+				{"rum": "270"},
+				{"coffee": "40"},
+				{"spice": "90"},
+				{"silk": "70"},
+				{"gems": "525"},
+				{"sugar": "190"},
+				{"bananas": "60"}]},
+				
+			{"name": "labrador", "prices": [
+				{"rum": "70"},
+				{"coffee": "45"},
+				{"spice": "120"},
+				{"silk": "110"},
+				{"gems": "625"},
+				{"sugar": "215"},
+				{"bananas": "75"}]},
+				
+			{"name": "jamaica", "prices": [
+				{"rum": "170"},
+				{"coffee": "55"},
+				{"spice": "130"},
+				{"silk": "170"},
+				{"gems": "375"},
+				{"sugar": "210"},
+				{"bananas": "110"}]}
+	]
+}

@@ -1,0 +1,341 @@
+{ 
+	"shipProperties": [
+		{
+			"name": "wood plank",
+			"type": "raft", 
+		 	"price": "500",
+			"islands": null,
+			"hp": "100",
+			"turnSpeed": "1.2", 
+			"speed": "6.8",
+			"crewLimit": "1",
+			"storageSize": "200",
+			"regeneration": "1"
+		}, 
+			 
+		{
+			"name": "raft 1",
+			"type": "raft", 
+			"price": "500",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "100",
+			"turnSpeed": "1.2", 
+			"speed": "6.5",
+			"crewLimit": "1",
+			"storageSize": "250",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "raft 2",
+			"type": "raft", 
+			"price": "1300",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "150",
+			"turnSpeed": "1", 
+			"speed": "6.2",
+			"crewLimit": "2",
+			"storageSize": "300",
+			"regeneration": "1"
+		}, 
+			 
+		{
+			"name": "raft 3",
+			"type": "raft", 
+			"price": "2400",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "200",
+			"turnSpeed": "0.9", 
+			"speed": "5.9",
+			"crewLimit": "3",
+			"storageSize": "400",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "boat 1",
+			"type": "boat", 
+			"price": "6900",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "450",
+			"turnSpeed": "0.7", 
+			"speed": "6",
+			"crewLimit": "5",
+			"storageSize": "500",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "boat 2",
+			"type": "boat", 
+			"price": "11000",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "600",
+			"turnSpeed": "0.7", 
+			"speed": "6.1",
+			"crewLimit": "6",
+			"storageSize": "600",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "boat 3",
+			"type": "boat", 
+			"price": "16000",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "600",
+			"turnSpeed": "0.7", 
+			"speed": "6.2",
+			"crewLimit": "7",
+			"storageSize": "700",
+			"regeneration": "1"
+		},  
+			
+		{
+			"name": "trader 1",
+			"type": "trader", 
+			"price": "4350",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "600",
+			"turnSpeed": "0.5", 
+			"speed": "5.1",
+			"crewLimit": "4",
+			"storageSize": "4000",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "trader 2",
+			"type": "trader", 
+			"price": "18000",
+			"islands": ["jamaica"],
+			"hp": "800",
+			"turnSpeed": "0.5", 
+			"speed": "5",
+			"crewLimit": "6",
+			"storageSize": "6000",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "trader 3",
+			"type": "trader", 
+			"price": "45000",
+			"islands": ["jamaica"],
+			"hp": "1000",
+			"turnSpeed": "0.5", 
+			"speed": "4.9",
+			"crewLimit": "6",
+			"storageSize": "8000",
+			"regeneration": "1"
+		},  
+			
+		{
+			"name": "baby fancy",
+			"type": "baby fancy", 
+			"price": "3900",
+			"islands": ["spain", "brazil", "cuba"],
+			"hp": "300",
+			"turnSpeed": "1", 
+			"speed": "7.2",
+			"crewLimit": "3",
+			"storageSize": "600",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "baby fancy 2",
+			"type": "baby fancy", 
+			"price": "27000",
+			"islands": ["jamaica"],
+			"hp": "500",
+			"turnSpeed": "1", 
+			"speed": "7.1",
+			"crewLimit": "3",
+			"storageSize": "900",
+			"regeneration": "2"
+		}, 
+			
+		{
+			"name": "destroyer 1",
+			"type": "destroyer", 
+			"price": "50000",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "2000",
+			"turnSpeed": "0.7", 
+			"speed": "5.9",
+			"crewLimit": "12",
+			"storageSize": "1000",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "destroyer 2",
+			"type": "destroyer", 
+			"price": "75000",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "2700",
+			"turnSpeed": "0.7", 
+			"speed": "5.8",
+			"crewLimit": "14",
+			"storageSize": "1300",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "destroyer 3",
+			"type": "destroyer", 
+			"price": "100000",
+			"islands": ["spain", "philipines", "guinea", "malaysia", "brazil", "barbados", "taiwan", "cuba", "labrador"],
+			"hp": "3800",
+			"turnSpeed": "0.7", 
+			"speed": "5.7",
+			"crewLimit": "16",
+			"storageSize": "1600",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "royal fortune",
+			"type": "big mama", 
+			"price": "70000",
+			"islands": ["labrador", "spain", "barbados", "taiwan"],
+			"hp": "1200",
+			"turnSpeed": "0.5", 
+			"speed": "6.9",
+			"crewLimit": "15",
+			"storageSize": "1200",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "royal fortune 2",
+			"type": "big mama", 
+			"price": "90000",
+			"islands": ["jamaica", "taiwan"],
+			"hp": "1500",
+			"turnSpeed": "0.6", 
+			"speed": "6.7",
+			"crewLimit": "18",
+			"storageSize": "1400",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "calm spirit",
+			"type": "big mama", 
+			"price": "100000",
+			"islands": ["spain", "guinea", "cuba"],
+			"hp": "1800",
+			"turnSpeed": "0.7", 
+			"speed": "6.4",
+			"crewLimit": "18",
+			"storageSize": "2000",
+			"regeneration": "3"
+		}, 
+			
+		{
+			"name": "calm spirit 2",
+			"type": "big mama", 
+			"price": "150000",
+			"islands": ["jamaica"],
+			"hp": "2300",
+			"turnSpeed": "0.7", 
+			"speed": "6.3",
+			"crewLimit": "20",
+			"storageSize": "2600",
+			"regeneration": "4"
+		}, 
+			
+		{
+			"name": "queen barb's justice",
+			"type": "big mama", 
+			"price": "150000",
+			"islands": ["spain", "malaysia"],
+			"hp": "3000",
+			"turnSpeed": "0.7", 
+			"speed": "5.9",
+			"crewLimit": "20",
+			"storageSize": "3000",
+			"regeneration": "5"
+		}, 
+			
+		{
+			"name": "queen barb's justice 2",
+			"type": "big mama", 
+			"price": "225000",
+			"islands": ["jamaica"],
+			"hp": "4000",
+			"turnSpeed": "0.7", 
+			"speed": "5.8",
+			"crewLimit": "25",
+			"storageSize": "4000",
+			"regeneration": "9"
+		},  
+			
+		{
+			"name": "night wind",
+			"type": "big mama", 
+			"price": "650000",
+			"islands": ["cuba"],
+			"hp": "4500",
+			"turnSpeed": "0.7", 
+			"speed": "7",
+			"crewLimit": "15",
+			"storageSize": "1000",
+			"regeneration": "3"
+		}, 
+			
+		{
+			"name": "black oyster",
+			"type": "big mama", 
+			"price": "550000",
+			"islands": ["jamaica"],
+			"hp": "6000",
+			"turnSpeed": "0.8", 
+			"speed": "6.4",
+			"crewLimit": "30",
+			"storageSize": "1500",
+			"regeneration": "5"
+		},
+			
+		{
+			"name": "fortune trader",
+			"type": "big mama", 
+			"price": "600000",
+			"islands": ["guinea"],
+			"hp": "7500",
+			"turnSpeed": "0.6", 
+			"speed": "5",
+			"crewLimit": "20",
+			"storageSize": "10000",
+			"regeneration": "1"
+		}, 
+			
+		{
+			"name": "junkie",
+			"type": "other", 
+			"price": "120000",
+			"islands": ["spain", "jamaica", "taiwan"],
+			"hp": "2500",
+			"turnSpeed": "0.7", 
+			"speed": "6.4",
+			"crewLimit": "8",
+			"storageSize": "4500",
+			"regeneration": "2"
+		}, 
+			
+		{
+			"name": "raider",
+			"type": "other", 
+			"price": "150000",
+			"islands": ["spain"],
+			"hp": "1200",
+			"turnSpeed": "0.9", 
+			"speed": "6.9",
+			"crewLimit": "6",
+			"storageSize": "1000",
+			"regeneration": "1"
+		}	 
+	]
+}
