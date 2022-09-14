@@ -27,7 +27,7 @@ public class Calculator {
 		this.islandCargoPriceDataTable = data.getIslandCargoPriceDataTable();
 	}
 	
-	public List<ProfitOption> calculateProfitOptionsOfIslandWithCurrentBoat(String islandName, String shipName, int... displayNumber) {
+	public List<ProfitOption> calculateListOfProfitOptions(String islandName, String shipName, int... displayNumber) {
 		// uses varargs to set up optional parameter and i use another variable to discard the array
 		int displayNchoices = 3;
 		if (displayNumber.length > 0) {
@@ -38,25 +38,56 @@ public class Calculator {
 		Island islandInfo = data.getIslandCargoPriceDataTable().get(islandName);
 		Set<String> cargoList = islandInfo.getCargoInfo().keySet();
 		Set<String> islandList = data.getIslandCargoPriceDataTable().keySet();
+		// TODO: find if there's a way to transform this into a stream
 		for (String cargo : cargoList) {
 			int cargoBuyPrice = islandInfo.getCargoInfo().get(cargo).getPrice();
 			for (String sellIsland : islandList) {
 				int cargoSellPrice = data.getIslandCargoPriceDataTable().get(sellIsland).getCargoInfo().get(cargo).getPrice();
 				if (cargoSellPrice > cargoBuyPrice) {
-					ProfitOption profitOption = profitOptionCalculator(shipName, cargo, islandName, sellIsland);
+					ProfitOption profitOption = profitOptionCalculator(islandName, sellIsland, shipName, cargo);
 					profitOptions.add(profitOption);
 				}
 			}
 		}
+		return sortAndLimit(profitOptions, displayNchoices);
+	}
+	
+	public List<ProfitOption> calculateListOfProfitOptions(String islandName, String sellIsland, String shipName, int... displayNumber) {
+		// TODO: find if there's a way to optimize this and avoid this much of code duplication
+		// this overloading answers the question "is there any way to profit from A to B?"
+		
+		// uses varargs to set up optional parameter and i use another variable to discard the array
+		int displayNchoices = 3;
+		if (displayNumber.length > 0) {
+			displayNchoices = displayNumber[0];
+		}
+		
+		List<ProfitOption> profitOptions = new ArrayList<>();
+		Island islandInfo = data.getIslandCargoPriceDataTable().get(islandName);
+		Set<String> cargoList = islandInfo.getCargoInfo().keySet();
+		// TODO: find if there's a way to transform this into a stream
+		for (String cargo : cargoList) {
+			int cargoBuyPrice = islandInfo.getCargoInfo().get(cargo).getPrice();
+			int cargoSellPrice = data.getIslandCargoPriceDataTable().get(sellIsland).getCargoInfo().get(cargo).getPrice();
+			if (cargoSellPrice > cargoBuyPrice) {
+				ProfitOption profitOption = profitOptionCalculator(islandName, sellIsland, shipName, cargo);
+				profitOptions.add(profitOption);
+			}
+		}
+		return sortAndLimit(profitOptions, displayNchoices);
+	}
+	
+	private List<ProfitOption> sortAndLimit(List<ProfitOption> profitOptions, int displayNchoices) {
 		profitOptions = profitOptions.stream()
-				.sorted(Comparator.comparing(ProfitOption::getProfit).reversed()
-						.thenComparing(Comparator.comparing(ProfitOption::getProfitPerSec).reversed()))
+				.sorted(Comparator
+						.comparing(ProfitOption::getProfitPerSec).reversed()
+						.thenComparing(Comparator.comparing(ProfitOption::getProfit).reversed()))
 				.limit(displayNchoices)
 				.collect(Collectors.toList());
 		return profitOptions;
 	}
 	
-	public ProfitOption profitOptionCalculator(String shipName, String cargoName, String buyIsland, String sellIsland) {
+	public ProfitOption profitOptionCalculator(String buyIsland, String sellIsland, String shipName, String cargoName) {
 		int maxBoatCapacity = shipPropertiesInfo.get(shipName).getMaxCargoSize();
 		Cargo cargoBuyInfo = islandCargoPriceDataTable.get(buyIsland).getCargoInfo().get(cargoName);
 		Cargo cargoSellInfo = islandCargoPriceDataTable.get(sellIsland).getCargoInfo().get(cargoName);
@@ -73,7 +104,11 @@ public class Calculator {
 	
 	private double travelTimeCalculator(String shipName, String startingIsland, String destinationIsland) {
 		// i timed the trip from spain to malaysia straight line with raft 1 with 6.5 speed and i got
-		// there in 4 minutes 30 seconds
+		// there in 4 minutes 32 seconds. if the distance between spain to malaysia is aprox 272, then the speed pixel/second
+		// is d/time(s), d/272 = speed(pixel/second), to make the conversion factor, i'll need to use the rule of three
+		// if 6.5 speed is d/272 (pixel/second), then 1 speed is x.
+		// putting into a conversion factor, x = 1/6.5;, so, we just gotta divide the speed by 6.5 and we'll have
+		// an estimate about how much time it'll take
 		
 		Double[] startingCoordinate = data.getIslandCargoPriceDataTable().get(startingIsland).getCoordinatesXY();
 		Double[] destinationCoordinate = data.getIslandCargoPriceDataTable().get(destinationIsland).getCoordinatesXY();
@@ -81,7 +116,8 @@ public class Calculator {
 		// formula to distance between two points in a cartesian plane
 		double distanceBetweenIslands = sqrt(pow(destinationCoordinate[0] - startingCoordinate[0], 2) + pow(destinationCoordinate[1] - startingCoordinate[1], 2));
 		
-		double boatSpeed = data.getShipPropertiesInfo().get(shipName).getSpeed();
+		//dividing by 6.5 to get the speed in pixel/second by rule of three with distance in pixels (empirically measured)
+		double boatSpeed = (data.getShipPropertiesInfo().get(shipName).getSpeed())/6.5;
 		double time = distanceBetweenIslands/boatSpeed;
 		
 		return time;

@@ -1,7 +1,5 @@
 package com.krew.profitcalculator.dataclasses;
 
-import java.text.DecimalFormat;
-
 public class ProfitOption {
 	private String cargoName;
 	private String destinationIsland;
@@ -35,15 +33,15 @@ public class ProfitOption {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+		
 		String profit = String.valueOf(this.profit);
 		// format profit to 15k or keep value if less than 1000
 		if (this.profit > 1000) {
-			profit = String.valueOf(this.profit/100) + "k";
+			profit = String.valueOf(this.profit/1000) + "k";
 		} 
 		
-		// format travel time and profit per second to two decimal spots
-		DecimalFormat formatter = new DecimalFormat("#.00");
+		// format time from double seconds to string minutes and seconds
+		String timeSpent = String.valueOf(((int) this.timeSpent/60) + "m" + Math.round(this.timeSpent%60) + "s");
 		
 		// capitalize destination island and cargo name
 		String destinationIsland = this.destinationIsland.substring(0, 1).toUpperCase() + this.destinationIsland.substring(1);
@@ -52,7 +50,7 @@ public class ProfitOption {
 		return "\nDestination Island: " + destinationIsland +
 			   "\n             Cargo: " + cargoName +
 			   "\n Profit To Be Made: " + "$" + profit +
-			   "\n       Travel Time: " + formatter.format(timeSpent) + 
+			   "\n       Travel Time: " + timeSpent + 
 			   "\n Profit per Second: " + "$" + profitPerSec + "/s" + "\n";
 	}
 }
