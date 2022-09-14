@@ -27,7 +27,13 @@ public class Calculator {
 		this.islandCargoPriceDataTable = data.getIslandCargoPriceDataTable();
 	}
 	
-	public List<ProfitOption> calculateProfitOptionsOfIslandWithCurrentBoat(String islandName, String shipName) {
+	public List<ProfitOption> calculateProfitOptionsOfIslandWithCurrentBoat(String islandName, String shipName, int... displayNumber) {
+		// uses varargs to set up optional parameter and i use another variable to discard the array
+		int displayNchoices = 3;
+		if (displayNumber.length > 0) {
+			displayNchoices = displayNumber[0];
+		}
+		
 		List<ProfitOption> profitOptions = new ArrayList<>();
 		Island islandInfo = data.getIslandCargoPriceDataTable().get(islandName);
 		Set<String> cargoList = islandInfo.getCargoInfo().keySet();
@@ -43,7 +49,9 @@ public class Calculator {
 			}
 		}
 		profitOptions = profitOptions.stream()
-				.sorted(Comparator.comparing(ProfitOption::getProfit).thenComparing(Comparator.comparing(ProfitOption::getProfitPerSec)))
+				.sorted(Comparator.comparing(ProfitOption::getProfit).reversed()
+						.thenComparing(Comparator.comparing(ProfitOption::getProfitPerSec).reversed()))
+				.limit(displayNchoices)
 				.collect(Collectors.toList());
 		return profitOptions;
 	}
