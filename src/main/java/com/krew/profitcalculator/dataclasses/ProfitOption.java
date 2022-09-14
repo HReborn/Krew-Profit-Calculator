@@ -7,13 +7,14 @@ public class ProfitOption {
 	private String destinationIsland;
 	private double timeSpent;
 	private int profit;
-	private double profitPerSec = profit/timeSpent;
+	private int profitPerSec;
 	
 	public ProfitOption(String cargoName, String destinationIsland, double timeSpent, int profit) {
 		this.cargoName = cargoName;
 		this.destinationIsland = destinationIsland;
 		this.timeSpent = timeSpent;
 		this.profit = profit;
+		this.profitPerSec = (int) Math.round(Double.valueOf(profit)/timeSpent);
 	}
 
 	public String getCargoName() {
@@ -52,6 +53,6 @@ public class ProfitOption {
 			   "\n             Cargo: " + cargoName +
 			   "\n Profit To Be Made: " + "$" + profit +
 			   "\n       Travel Time: " + formatter.format(timeSpent) + 
-			   "\n Profit per Second: " + "$" + formatter.format(profitPerSec) + "/s" + "\n";
+			   "\n Profit per Second: " + "$" + profitPerSec + "/s" + "\n";
 	}
 }
