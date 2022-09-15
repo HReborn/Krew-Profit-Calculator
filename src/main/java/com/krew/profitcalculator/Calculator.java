@@ -87,6 +87,37 @@ public class Calculator {
 		return profitOptions;
 	}
 	
+	
+	public List<ProfitOption> calculateListOfProfitOptions(String currentIsland, int... displayNumber) {
+		
+		// this method answer the question "if i wanna pvp and i'm in island A, from which
+		// islands ppl will be coming so that i take the route to intercept them?
+		// this method will calculate from the most profitable route from all islands to
+		// island A and the most profitable route from all the islands will be the 
+		// best route to attack because that route will have a higher chance of encountering
+		// lucrative traders.
+		
+		// obs: this option only affects how many possible attack routes the method will show from each
+		// island to the current island there can be only one profit option bc the objective is just to
+		// find the top profit option from all islands to the current island and rank those options
+		// so that the most profitable options will be the most problable routes traders are gonna take
+		// so those are the routes i'm gonna intercept
+		int displayNchoices = 3;
+		if (displayNumber.length > 0) {
+			displayNchoices = displayNumber[0];
+		}
+		
+		String defaultShip = "trader 1"; // most common profit target. this is the goal.
+		Set<String> islandList = data.getIslandCargoPriceDataTable().keySet();
+		List<ProfitOption> routesToAttack = new ArrayList<>();
+		for (String targetIsland : islandList) {
+			routesToAttack.addAll(calculateListOfProfitOptions(targetIsland, currentIsland, defaultShip, 1));
+		}
+		
+		return sortAndLimit(routesToAttack, displayNchoices);
+	}
+	
+	
 	public ProfitOption profitOptionCalculator(String buyIsland, String sellIsland, String shipName, String cargoName) {
 		int maxBoatCapacity = shipPropertiesInfo.get(shipName).getMaxCargoSize();
 		Cargo cargoBuyInfo = islandCargoPriceDataTable.get(buyIsland).getCargoInfo().get(cargoName);
