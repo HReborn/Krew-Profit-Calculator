@@ -7,7 +7,6 @@ public class Ship {
 	private String type;
 	private int price;
 	private List<String> availableAt;
-	private List<String> unavailableAt;
 	private int hp;
 	private double turnSpeed;
 	private double speed;
@@ -15,12 +14,11 @@ public class Ship {
 	private int maxCargoSize;
 	private int regenaration;
 	
-	public Ship(String name, String type, int price, List<String> availableAt, List<String> unavailableAt, int hp,double turnSpeed, double speed, int maxCrewSize, int maxCargoSize, int regenaration) {
+	public Ship(String name, String type, int price, List<String> availableAt, int hp, double turnSpeed, double speed, int maxCrewSize, int maxCargoSize, int regenaration) {
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.availableAt = availableAt;
-		this.unavailableAt = unavailableAt;
 		this.hp = hp;
 		this.turnSpeed = turnSpeed;
 		this.speed = speed;
@@ -38,11 +36,8 @@ public class Ship {
 	public int getPrice() {
 		return price;
 	}
-	public List<String> getAvailableAt() {
-		return availableAt;
-	}
-	public List<String> getUnavailableAt() {
-		return unavailableAt;
+	public boolean isAvailable(String islandName) {
+		return availableAt.contains(islandName);
 	}
 	public int getHp() {
 		return hp;

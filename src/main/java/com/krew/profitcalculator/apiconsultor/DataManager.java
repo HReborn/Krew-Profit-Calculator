@@ -1,6 +1,5 @@
 package com.krew.profitcalculator.apiconsultor;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +43,7 @@ public class DataManager {
 			Double[] coordinatesXY = new Double[2];  
 			coordinatesXY[0] = Double.valueOf(coordinatesxy[0]);
 			coordinatesXY[1] = Double.valueOf(coordinatesxy[1]);
-			Island islandInfo = new Island(coordinatesXY, cargoInfos);
+			Island islandInfo = new Island(coordinatesXY, cargoInfos, islandName);
 			islandCargoPriceDataTable.put(islandName, islandInfo);
 		}
 		return islandCargoPriceDataTable;
@@ -58,20 +57,12 @@ public class DataManager {
 			Map<String, String> properties = shipPropertiesInfoTable.get(shipName);
 			String[] availableat = properties.get("islands").split(" ");
 			List<String> availableAt = Arrays.asList(availableat);
-			List<String> unavailableAt = new ArrayList<>();
-			Set<String> islandNames = islandCoordinates.keySet();
-			for (String islandName : islandNames) {
-				if (!availableAt.contains(islandName)) {
-					unavailableAt.add(islandName);
-				}
-			}
 
 			Ship shipProperties = new Ship(
 					shipName, 
 					properties.get("type"), 
 					Integer.valueOf(properties.get("price")), 
 					availableAt, 
-					unavailableAt, 
 					Integer.valueOf(properties.get("hp")), 
 					Double.valueOf(properties.get("turnSpeed")), 
 					Double.valueOf(properties.get("speed")), 
@@ -79,7 +70,6 @@ public class DataManager {
 					Integer.valueOf(properties.get("storageSize")), 
 					Integer.valueOf(properties.get("regeneration")));
 			shipPropertiesInfo.put(shipName, shipProperties);
-					
 		}
 		return shipPropertiesInfo;
 	}

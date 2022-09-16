@@ -1,97 +1,122 @@
 package com.krew.profitcalculator.dataclasses.profitoption;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
+import com.krew.profitcalculator.dataclasses.Cargo;
+import com.krew.profitcalculator.dataclasses.Island;
+import com.krew.profitcalculator.dataclasses.Ship;
+
 public class ProfitOption {
 	
-	// maybe transform into 3 different classes
-	// header, simple and detailed and each one with
-	// it's tostring method like:
+	private LevelOfDetail levelOfDetail;
 	
 	private ProfitOptionHeader header;
-	private ProfitOptionSimple simple;
+	private ProfitOptionCore core;
 	private ProfitOptionDetailed detailed;
 	
-	// the to string from this class would be
-	// return header.toString + simple.toString + detailed.toString
-	// if any of those is null, the tostring would return an empty string.
+	public int getProfitPerSec() {
+		return core.getProfitPerSec();
+	}
 	
-	// maybe use inheritance? the three classes would extend ProfitOption
+	public int getProfit() {
+		return core.getProfit();
+	}
 	
-	// maybe linked inheritance since simple can't exist without header and
-	// detailed can't exist without simple and header.
-	
-	// 
-	
-	// level of detail to be shown
-	private enum levelOfDetail {HEADER, SIMPLE, DETAILED};
-	
-	// header unique identifyier
-	private String currentIsland; 
-	private String cargoName; 
-	private String destinationIsland;
-	private String boatName;
-	
-	// most important info only
-	private double timeSpent;
-	private int profit;
-	private int profitPerSec; 
-	
-	// full detail info if the user so wishes
-	private int maxStorage;
-	private double distance;
-	private int speed;
-	
-	private int buyPrice;
-	private int sellPrice;
-	private int unitSize;
-	
-	private int totalSpent;
-	private int totalSold;
-	private int unitsBought;
-	
-	public ProfitOption(String cargoName, String destinationIsland, double timeSpent, int profit) {
-		this.cargoName = cargoName;
-		this.destinationIsland = destinationIsland;
-		this.timeSpent = timeSpent;
-		this.profit = profit;
-		this.profitPerSec = (int) Math.round(Double.valueOf(profit)/timeSpent);
+	public LevelOfDetail getLevelOfDetail() {
+		return levelOfDetail;
 	}
 
-	public String getCargoName() {
-		return cargoName;
+	public ProfitOptionHeader getHeader() {
+		return header;
 	}
-	public String getDestinationIsland() {
-		return destinationIsland;
+
+	public ProfitOptionCore getCore() {
+		return core;
 	}
-	public double getTimeSpent() {
-		return timeSpent;
+
+	public ProfitOptionDetailed getDetailed() {
+		return detailed;
 	}
-	public int getProfit() {
+
+	public ProfitOption(Island buyIsland, String cargoName, Island sellIsland, Ship ship, LevelOfDetail levelOfDetail) {
+		this.levelOfDetail = levelOfDetail;
+		
+		header = new ProfitOptionHeader(buyIsland, cargoName, sellIsland, ship);
+		
+		detailed = new ProfitOptionDetailed();
+		detailed.setMaxStorage(ship.getMaxCargoSize());
+		detailed.setSpeed(ship.getSpeed());
+		detailed.setBuyPrice(buyIsland.getIslandCargoPrices().get(cargoName).getPrice());
+		detailed.setSellPrice(sellIsland.getIslandCargoPrices().get(cargoName).getPrice());
+		detailed.setSellPrice(sellIsland.getIslandCargoPrices().get(cargoName).getSize());
+		
+		// the detailed.totalspent,sold and bought are setted insie calculateProfit
+		int profit = calculateProfit();
+		// the detailed.setDistance() is setted inside calculateTravelTime
+		double travelTime = calculateTravelTime();
+		core = new ProfitOptionCore(profit, travelTime);
+	}
+
+	private int calculateProfit() {
+		int maxBoatCapacity = header.getShip().getMaxCargoSize();
+		String cargoName = header.getCargoName();
+		Cargo cargoBuyPrice = header.getBuyIsland().getIslandCargoPrices().get(cargoName);
+		Cargo cargoSellPrice = header.getSellIsland().getIslandCargoPrices().get(cargoName);
+		
+		int cargoSize = cargoBuyPrice.getSize();
+		int buyPrice = cargoBuyPrice.getPrice();
+		int sellPrice = cargoSellPrice.getPrice();
+		
+		int cargoQtty = maxBoatCapacity/cargoSize;
+		
+		detailed.setUnitSize(cargoSize);
+		detailed.setTotalSpent(buyPrice*cargoQtty);
+		detailed.setTotalSold(sellPrice*cargoQtty);
+		detailed.setUnitsBought(cargoQtty);
+		
+		int profit = cargoQtty*(sellPrice - buyPrice);
 		return profit;
 	}
-	public double getProfitPerSec() {
-		return profitPerSec;
+	
+	private double calculateTravelTime() {
+		// i timed the trip from spain to malaysia straight line with raft 1 with 6.5 speed and i got
+		// there in 4 minutes 32 seconds. if the distance between spain to malaysia is aprox 272, then the speed pixel/second
+		// is d/time(s), d/272 = speed(pixel/second), to make the conversion factor, i'll need to use the rule of three
+		// if 6.5 speed is d/272 (pixel/second), then 1 speed is x.
+		// putting into a conversion factor, x = 1/6.5;, so, we just gotta divide the speed by 6.5 and we'll have
+		// an estimate about how much time it'll take
+		
+		double distanceBetweenIslands = calculateDistance();
+		detailed.setDistance(distanceBetweenIslands);
+		//dividing by 6.5 to get the speed in pixel/second by rule of three with distance in pixels (empirically measured)
+		double boatSpeed = (header.getShip().getSpeed())/6.5;
+		double time = distanceBetweenIslands/boatSpeed;
+		
+		return time;
+	}
+	
+	private double calculateDistance() {
+		Double[] startingCoordinate = header.getBuyIsland().getCoordinatesXY();
+		Double[] destinationCoordinate = header.getSellIsland().getCoordinatesXY();
+		// formula to distance between two points in a cartesian plane
+		double distanceBetweenIslands = sqrt(pow(destinationCoordinate[0] - startingCoordinate[0], 2) + pow(destinationCoordinate[1] - startingCoordinate[1], 2));
+		return distanceBetweenIslands;
 	}
 	
 	@Override
 	public String toString() {
-		
-		String profit = String.valueOf(this.profit);
-		// format profit to 15k or keep value if less than 1000
-		if (this.profit > 1000) {
-			profit = String.valueOf(this.profit/1000) + "k";
-		} 
-		
-		// format time from double seconds to string minutes and seconds
-		String timeSpent = String.valueOf(((int) this.timeSpent/60) + "m" + Math.round(this.timeSpent%60) + "s");
-		
-		// capitalize destination island and cargo name
-		String destinationIsland = this.destinationIsland.substring(0, 1).toUpperCase() + this.destinationIsland.substring(1);
-		String cargoName = this.cargoName.substring(0, 1).toUpperCase() + this.cargoName.substring(1);
-		
-		return "\nDestination Island: " + destinationIsland +
-			   "\n             Cargo: " + cargoName +
-			   "\n Profit To Be Made: " + "$" + profit +
-			   "\n       Travel Time: " + timeSpent + 
-			   "\n Profit per Second: " + "$" + profitPerSec + "/s" + "\n";
+		if (levelOfDetail.toString().equals("DETAILED")) {
+			
+			return header.toString() + core.toString() + detailed.toString();
+			
+		} else if (levelOfDetail.toString().equals("HEADER")) {
+			
+			return header.toString() + "\n";
+			
+		} else {
+			
+			return header.toString() + core.toString() + "\n";
+		}
 	}
 }
