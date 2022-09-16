@@ -2,7 +2,7 @@ package com.krew.profitcalculator;
 
 import java.util.List;
 
-import com.krew.profitcalculator.dataclasses.ProfitOption;
+import com.krew.profitcalculator.dataclasses.profitoption.ProfitOption;
 
 public class Main {
 	public static void main(String[] args) {

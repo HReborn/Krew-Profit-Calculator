@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 import com.krew.profitcalculator.apiconsultor.GameData;
 import com.krew.profitcalculator.dataclasses.Cargo;
 import com.krew.profitcalculator.dataclasses.Island;
-import com.krew.profitcalculator.dataclasses.ProfitOption;
 import com.krew.profitcalculator.dataclasses.Ship;
+import com.krew.profitcalculator.dataclasses.profitoption.ProfitOption;
 
 public class Calculator {
 	GameData data;
